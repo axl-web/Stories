@@ -1,0 +1,91 @@
+/* ***** ***** ***** Centered & Spaced ***** ***** ***** */
+@mixin full {
+    width: 100%;
+    height: 100%;
+}
+
+@mixin absolute-cover {
+    @include full;
+    min-height: 500px;
+    background-color: $red;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+@mixin center-vertical-horizontal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ***** ***** ***** text ***** ***** ***** */
+
+@mixin text-center {
+    text-align: center;
+}
+
+@mixin text-right {
+    text-align:right;
+}
+
+@mixin padding-text-right {
+    padding-right: 10px;
+}
+
+@mixin main-text {
+    font-weight: 200;
+    font-size: 1.1em;
+    line-height: 1.5em;
+        h1,h2{
+           font-weight: inherit;
+           font-size: $big;
+           letter-spacing: 0.3em;
+           line-height: 1.5em;
+        }
+}
+
+@mixin caption {
+    padding: $large-padding;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 2em;
+    position: absolute;
+    width: auto;
+    bottom: 0px;
+    left: 10px;
+    z-index: 10;
+    @include text-center;
+    color: rgba($white, $alpha: 0.5);
+    letter-spacing: 4px;
+}
+
+/* ***** ***** ***** Animacion y transicion ***** ***** ***** */
+@mixin transition ($speed){
+    transition: all $speed ease-out;  
+}
+
+
+/* ***** ***** ***** Menu & Close ***** ***** ***** */
+
+@mixin menu-boton ($position, $color-boton) {
+    position: $position;
+    top:2em;
+    right: 2em;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid $blue;
+    @include center-vertical-horizontal;
+    @include transition(0.15s);
+    cursor: pointer;
+
+    &:hover{
+        background-color: rgba($color-boton, $alpha: 0.6);
+    }
+
+    img{
+        height: 50px;
+    }
+}
+
